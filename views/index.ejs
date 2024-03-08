@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nationality Guesser</title>
+    <link rel="stylesheet" href="/css/style.css"> <!-- Css Styling link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> <!-- Bootstrap CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Gayathri:wght@100;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <%- include('partials/header') %>
+    
+    <!-- Main content container -->
+    <div class="content-container">
+        <header class="text-center">
+            <h1>Welcome to the Nationality Guesser</h1>
+            <p class="home-paragraph">
+                Are you curious about the rich heritage 📜 and diverse cultures linked to your name? If so, Giorgia's Nationality Guesser is the place for you!😊 Our site is perfect for anyone wanting to learn more about their identity or just interested in names and their origins. With the help of the latest technology 👩🏽‍💻, our website quickly predicts your name's nationality, helping you feel a bit closer to your roots. Why not give it a go? Find out the story behind your name in just a few seconds!🏳️‍🌈</p>
+        </header>
+        <main>
+            <form action="/guess-nationality" method="get" class="guess-form">
+                <label for="name" class="form-label guess-label">Enter a Name:</label>
+                <input type="text" id="name" name="name" required class="form-input">
+                <button type="submit" class="btn btn-primary mt-2 guess-button">Guess Nationality</button>
+            </form>
+        </main>
+        <!-- Recent Searches -->
+        <% if (recentSearches.length > 0) { %>
+            <div class="recent-searches mt-4">
+                <h2>Recent Searches</h2>
+                <ul class="list-unstyled">
+                    <% recentSearches.forEach(function(search) { %>
+                        <li><%= search %></li>
+                    <% }); %>
+                </ul>
+            </div>
+        <% } %>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> <!-- Bootstrap CDN -->
+    <%- include('partials/footer') %>
+</body>
+</html>
